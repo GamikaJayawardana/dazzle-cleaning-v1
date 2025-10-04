@@ -1,15 +1,30 @@
+import About from '@/components/About'
+import Contact from '@/components/Contact'
+import Faq from '@/components/Faq'
+import Footer from '@/components/Footer'
+import Header from '@/components/Header'
+import Hero from '@/components/Hero'
+import Services from '@/components/Services'
+import Stats from '@/components/Stats'
+import Testimonials from '@/components/Testimonials'
+import Topbar from '@/components/Topbar'
+import Work from '@/components/Work'
 import React from 'react'
 
 const Home = () => {
   return (
     <div>
-      <h1>Dazzle cleaning</h1>
-      <h2>Dazzle cleaning</h2>
-      <h3>Dazzle cleaning</h3>
-      <h4>Dazzle cleaning</h4>
-      <h5>Dazzle cleaning</h5>
-      <p>Home</p>
-
+      <Topbar />
+      <Header />
+      <Hero />
+      <About />
+      <Stats />
+      <Services />
+      <Work />
+      <Testimonials />
+      <Faq />
+      <Contact />
+      <Footer />
     </div>
   )
 }
