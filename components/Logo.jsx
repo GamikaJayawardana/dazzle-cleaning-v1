@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-scroll'
-import './Logo.css' // Import your CSS file
+import './logo.css' // Import your CSS file
 
 const Logo = () => {
   return (
