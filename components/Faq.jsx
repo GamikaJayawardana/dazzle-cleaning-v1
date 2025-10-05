@@ -7,8 +7,9 @@ import { fadeIn } from '@/public/assets/variants';
 
 // Plus/Minus Icon with secondary background box (Styled to match the image)
 const PlusMinusIcon = ({ isOpen }) => (
-    // Background color is secondary
-    <div className='w-10 h-10 bg-secondary flex items-center justify-center transition-all duration-300 rounded-lg'>
+    // FIX: Added flex-shrink-0 to ensure the size (w-10 h-10, which is 40px) remains constant 
+    // and does not shrink on mobile or within constrained flex layouts.
+    <div className='w-10 h-10 bg-secondary flex items-center justify-center transition-all duration-300 rounded-lg flex-shrink-0'>
         <svg 
             // Icon color is white
             className={`w-6 h-6 text-white transform transition-transform duration-300 ${isOpen ? 'rotate-45' : 'rotate-0'}`} 
