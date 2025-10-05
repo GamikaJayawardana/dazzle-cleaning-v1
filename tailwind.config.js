@@ -25,9 +25,10 @@ module.exports = {
 
   	extend: {
       colors: {
-        primary: "#000B58",
-        secondary: "#FFCC00",
-        secondary2: "#FFCC00",
+        primary: "#000A4F",
+        secondary: "#ffdf00",
+        gold: "#ffdf00",
+        goldg: "#D4AF37",
         accent: "#FFCC00",
         border: "#E0E0E0",
       },

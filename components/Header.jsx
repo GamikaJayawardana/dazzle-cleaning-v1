@@ -4,6 +4,7 @@ import React from 'react'
 import { Link as ScrollLink } from 'react-scroll'
 import Logo from './Logo';
 import BtnQuote from './btnQuote';
+import NavMobile from './NavMobile';
 
 const links = [
     { name: 'home', path: 'home' },
@@ -17,12 +18,13 @@ const Header = () => {
     return (
         <header className="bg-primary text-white py-4 sticky top-0">
             <div className="container mx-auto">
-                <nav className='hidden lg:flex justify-between items-center gap-12'>
+                <nav className='flex justify-between items-center gap-12'>
 
                     {/*logo*/}
                     <Logo/>
 
-                    {/* links */}
+                    <div className='hidden lg:flex justify-between items-center gap-12'>
+                        {/* links */}
                     <ul className='flex gap-8 '>
                         {links.map((link, index) => {
                             return (
@@ -44,6 +46,9 @@ const Header = () => {
 
                     {/* button */}
                     <BtnQuote />
+                    </div>
+
+                    <NavMobile className="lg:hidden" />
                 </nav>
 
             </div>
