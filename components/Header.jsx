@@ -3,7 +3,7 @@
 import React from 'react'
 import { Link as ScrollLink } from 'react-scroll'
 import Logo from './Logo';
-import BtnQuote from './btnQuote';
+import BtnQuote from './BtnQuote';
 import NavMobile from './NavMobile';
 
 const links = [
