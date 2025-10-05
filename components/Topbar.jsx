@@ -5,7 +5,7 @@ import Socials from './Socials'
 const Topbar = () => {
   return (
     <section className='py-2 xl:py-3 
-    bg-gradient-to-b from-secondary/80 to-secondary
+    bg-gradient-to-b from-[#FFCC00] to-[#D4AF37]
     flex items-center'
       id='home'>
       <div className="container mx-auto">
@@ -15,7 +15,7 @@ const Topbar = () => {
           <div className="hidden lg:flex items-center gap-8">
 
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 bg-primary text-md text-white flex items-center justify-center rounded-full">
+              <div className="w-7 h-7 bg-primary text-md text-secondary flex items-center justify-center rounded-full">
                 <RiPhoneFill />
               </div>
               <div className='font-small font-primary text-sm text-primary'>
@@ -24,7 +24,7 @@ const Topbar = () => {
             </div>
 
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 bg-primary text-white text-md flex items-center justify-center rounded-full">
+              <div className="w-7 h-7 bg-primary text-secondary text-md flex items-center justify-center rounded-full">
                 <RiMailFill />
               </div>
               <div className='font-small font-primary text-sm text-primary'>

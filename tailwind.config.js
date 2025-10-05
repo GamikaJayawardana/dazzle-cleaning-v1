@@ -26,8 +26,9 @@ module.exports = {
   	extend: {
       colors: {
         primary: "#000B58",
-        secondary: "#00AEEF",
-        accent: "#00AEEF",
+        secondary: "#FFCC00",
+        secondary2: "#FFCC00",
+        accent: "#FFCC00",
         border: "#E0E0E0",
       },
       boxShadow: {
