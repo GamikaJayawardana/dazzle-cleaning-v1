@@ -26,7 +26,7 @@ const Header = () => {
                     <ul className='flex gap-8 '>
                         {links.map((link, index) => {
                             return (
-                                <li key={index} className='font-primary font-bold text-white text-sm uppercase tracking-[1.5]' >
+                                <li key={index} className='font-primary font-semibold text-white text-sm uppercase tracking-[1.5]' >
                                     <ScrollLink
                                         to={link.path}
                                         smooth
