@@ -6,12 +6,12 @@
 /* Media queries for smaller screens */
 @media (max-width: 768px) { /* Tablets and smaller */
   .logo-img {
-    width: 100px;
+    width: 120px;
   }
 }
 
 @media (max-width: 640px) { /* Mobile phones */
   .logo-img {
-    width: 100px;
+    width: 120px;
   }
 }
