@@ -6,6 +6,7 @@ import Faq from '@/components/Faq'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
+import MapSection from '@/components/MapSection';
 import Services from '@/components/Services'
 import Stats from '@/components/Stats'
 import Testimonials from '@/components/Testimonials'
@@ -25,7 +26,7 @@ const Home = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     }
-  }, {})
+  }, [])
 
   console.log(headerActive);
 
@@ -51,6 +52,7 @@ const Home = () => {
       <Testimonials />
       <Faq />
       <Contact />
+      <MapSection />
       <Footer />
     </div>
   )

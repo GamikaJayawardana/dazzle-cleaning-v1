@@ -7,7 +7,7 @@ import Socials from './Socials'
 const Topbar = () => {
   return (
     <section className='py-2 xl:py-3    
-    bg-gradient-to-b from-secondary/80 to-[#0072a7]
+    bg-secondary
   
     flex items-center'
       id='home'>

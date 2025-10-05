@@ -25,11 +25,12 @@ module.exports = {
 
   	extend: {
       colors: {
-        primary: "#121629",
+        primary: "#011017",
         secondary: "#06a4eb",
         gold: "#efd474",
         accent: "#06a4eb",
         border: "#E0E0E0",
+        bglight:"#e6f6fd",
       },
       boxShadow: {
         custom: "0px 4px 54px 10px rgba(18, 19, 21, 0.06)",
