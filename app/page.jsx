@@ -13,6 +13,8 @@ import Testimonials from '@/components/Testimonials'
 import Topbar from '@/components/Topbar'
 import Work from '@/components/Work'
 import React, { useEffect } from 'react'
+import TestimonialCarousel from '@/components/TestimonialCarousel';
+
 
 const Home = () => {
   const [headerActive, setHeaderActive] = React.useState(false);
@@ -49,7 +51,7 @@ const Home = () => {
       <Stats />
       <Services />
       <Work />
-      <Testimonials />
+      <TestimonialCarousel />
       <Faq />
       <Contact />
       <MapSection />

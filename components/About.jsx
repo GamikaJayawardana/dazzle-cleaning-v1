@@ -1,6 +1,8 @@
 import React from 'react'
 import Pretitle from './Pretitle'
 import { RiArrowRightUpLine } from 'react-icons/ri'
+import { motion } from 'framer-motion'
+import { fadeIn } from '@/public/assets/variants'
 
 const About = () => {
   return (
@@ -9,12 +11,22 @@ const About = () => {
         <div className="flex flex-col justify-between gap-12 xl:gap-0 xl:flex-row xl:items-center">
 
           {/*img - The 'hidden xl:flex' already hides it on mobile and shows it on large screens and up. */}
-          <div className='flex-1 hidden xl:flex justify-start'>
+          <motion.div 
+          variants={fadeIn("left", 0.08)} 
+                      initial="hidden" 
+                      whileInView="show" 
+                      viewport={{ once: false, amount: 0.8 }} 
+          className='flex-1 hidden xl:flex justify-start'>
             <img src="/assets/img/about/AboutImgBGR.png" alt="about img" width={400} />
-          </div>
+          </motion.div>
 
           {/*Text Content - Added 'mx-auto' and 'text-center' for mobile centering */}
-          <div className='flex max-w-[700px] mx-auto xl:mx-0'>
+          <motion.div 
+          variants={fadeIn("left", 0.2)} 
+                      initial="hidden" 
+                      whileInView="show" 
+                      viewport={{ once: false, amount: 0.8 }} 
+          className='flex max-w-[700px] mx-auto xl:mx-0'>
             <div className='text-center xl:text-left'>
               
               
@@ -36,7 +48,7 @@ const About = () => {
               </button>
 
             </div>
-          </div>
+          </motion.div>
 
         </div>
 

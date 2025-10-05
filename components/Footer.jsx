@@ -6,6 +6,8 @@ import { FaFacebookF, FaTwitter, FaYoutube, FaInstagram } from 'react-icons/fa';
 import { IoChevronUpOutline } from 'react-icons/io5';
 import { Link as ScrollLink } from 'react-scroll';
 import { RiArrowRightUpLine } from 'react-icons/ri';
+import { RiPhoneFill, RiMailFill,  } from 'react-icons/ri'
+import { RiHome3Fill } from 'react-icons/ri';
 
 const Footer = () => {
   const [showScroll, setShowScroll] = useState(false);
@@ -49,15 +51,15 @@ const Footer = () => {
               <h3 className="h4 text-white mb-6">Contact</h3>
               <ul className="space-y-4 font-secondary text-white/80">
                 <li className="flex items-center gap-3">
-                  <FaFacebookF className="text-secondary" />
+                  <RiHome3Fill className="text-secondary" />
                   <span>123 Clean St. Anytown, CA 90210, US</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <FaTwitter className="text-secondary" />
+                  <RiPhoneFill className="text-secondary" />
                   <span>+(1)555-CLEANING</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <FaYoutube className="text-secondary" />
+                  <RiMailFill className="text-secondary" />
                   <span>info@cleanservice.com</span>
                 </li>
               </ul>
