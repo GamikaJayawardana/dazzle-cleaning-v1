@@ -13,9 +13,10 @@ const links = [
 
 const Header = () => {
   return (
-    <header className="bg-primary text-white py-4 sticky top-0">
+    <header className="bg-[white] text-primary py-4 sticky top-0">
        <div className="container mx-auto">
-        <ul className='flex gap-12 text-white'>
+        <ul className='flex gap-12 text-primary
+        '>
            {links.map((link, index) => {
             return (
                 <li key={index} >

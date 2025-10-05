@@ -4,8 +4,8 @@ import Socials from './Socials'
 
 const Topbar = () => {
   return (
-    <section className='py-4 xl:py-4 
-    bg-gradient-to-b from-[#00AEEF] to-[#0286b6] 
+    <section className='py-2 xl:py-3 
+    bg-gradient-to-b from-primary to-primary
     flex items-center'
       id='home'>
       <div className="container mx-auto">
@@ -14,20 +14,20 @@ const Topbar = () => {
 
           <div className="hidden lg:flex items-center gap-8">
 
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-primary text-white flex items-center justify-center rounded-full">
+            <div className="flex items-center gap-2">
+              <div className="w-7 h-7 bg-white text-primary flex items-center justify-center rounded-full">
                 <RiPhoneFill />
               </div>
-              <div className='font-medium text-primary'>
+              <div className='font-small text-sm text-white'>
                +1 (123) 456-7890
               </div>
             </div>
 
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-primary text-white flex items-center justify-center rounded-full">
+            <div className="flex items-center gap-2">
+              <div className="w-7 h-7 bg-white text-primary flex items-center justify-center rounded-full">
                 <RiMailFill />
               </div>
-              <div className='font-medium text-primary'>
+              <div className='font-small text-sm text-white'>
                 dazzlecleaning@gmail.com
               </div>
 
@@ -36,7 +36,7 @@ const Topbar = () => {
           </div>
 
           <Socials  containerStyles="flex items-center gap-8 mx-auto lg:mx-0" 
-          iconStyles="text-primary text-2xl flex items-center justify-center rounded-full" />
+          iconStyles="text-white text-2xl flex items-center justify-center rounded-full" />
         </div>
 
 
