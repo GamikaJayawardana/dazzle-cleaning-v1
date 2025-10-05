@@ -16,7 +16,7 @@ const links = [
 
 const Header = () => {
     return (
-        <header className="bg-primary text-white py-4 sticky top-0">
+        <header className="bg-primary text-white py-4">
             <div className="container mx-auto">
                 <nav className='flex justify-between items-center gap-12'>
 

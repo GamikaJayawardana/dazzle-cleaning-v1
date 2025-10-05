@@ -2,12 +2,13 @@ import React from 'react'
 import { RiPhoneFill, RiMailFill } from 'react-icons/ri'
 import Socials from './Socials'
 
-{/*bg-gradient-to-b from-[#ffdf00] to-[#c7a005]*/}
+{/*bg-gradient-to-b from-[#ffdf00] to-[#c7a005]  gradient-to-b from-[#efd474] to-[#9d743f]*/}
 
 const Topbar = () => {
   return (
     <section className='py-2 xl:py-3    
-    bg-gradient-to-b from-[#efd474] to-[#9d743f]
+    bg-gradient-to-b from-secondary/80 to-[#0072a7]
+  
     flex items-center'
       id='home'>
       <div className="container mx-auto">
@@ -17,19 +18,19 @@ const Topbar = () => {
           <div className="hidden lg:flex items-center gap-8">
 
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 bg-primary text-md text-gold flex items-center justify-center rounded-full">
+              <div className="w-7 h-7 bg-primary text-md text-seconadry flex items-center justify-center rounded-full">
                 <RiPhoneFill />
               </div>
-              <div className='font-small font-primary text-sm text-primary'>
+              <div className='font-medium font-primary text-md text-primary'>
                +1 (123) 456-7890
               </div>
             </div>
 
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 bg-primary text-gold text-md flex items-center justify-center rounded-full">
+              <div className="w-7 h-7 bg-primary text-seconadry text-md flex items-center justify-center rounded-full">
                 <RiMailFill />
               </div>
-              <div className='font-small font-primary text-sm text-primary'>
+              <div className='font-medium font-primary text-md text-primary'>
                 dazzlecleaning@gmail.com
               </div>
 
