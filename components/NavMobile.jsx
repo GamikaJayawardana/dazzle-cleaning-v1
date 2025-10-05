@@ -20,7 +20,7 @@ const links = [
     { name: 'home', path: 'home' },
     { name: 'about', path: 'about' },
     { name: 'services', path: 'services' },
-    { name: 'projects', path: 'projects' },
+    { name: 'testimonials', path: 'testimonials' },
     { name: 'contact', path: 'contact' },
 ]
 

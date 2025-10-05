@@ -49,11 +49,11 @@ const Home = () => {
       <Hero />
       <About />
       <Stats />
-      <Services />
-      <Work />
+      {/* <Services /> */}
+      {/* <Work /> */}
       <TestimonialCarousel />
       <Faq />
-      <Contact />
+      {/* <Contact /> */}
       <MapSection />
       <Footer />
     </div>
