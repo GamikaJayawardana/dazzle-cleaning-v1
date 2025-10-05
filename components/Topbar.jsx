@@ -2,10 +2,12 @@ import React from 'react'
 import { RiPhoneFill, RiMailFill } from 'react-icons/ri'
 import Socials from './Socials'
 
+{/*bg-gradient-to-b from-[#ffdf00] to-[#c7a005]*/}
+
 const Topbar = () => {
   return (
-    <section className='py-2 xl:py-3 
-    bg-gradient-to-b from-[#ffdf00] to-[#c7a005]
+    <section className='py-2 xl:py-3    
+    bg-gradient-to-b from-[#efd474] to-[#9d743f]
     flex items-center'
       id='home'>
       <div className="container mx-auto">
@@ -15,7 +17,7 @@ const Topbar = () => {
           <div className="hidden lg:flex items-center gap-8">
 
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 bg-primary text-md text-secondary flex items-center justify-center rounded-full">
+              <div className="w-7 h-7 bg-primary text-md text-gold flex items-center justify-center rounded-full">
                 <RiPhoneFill />
               </div>
               <div className='font-small font-primary text-sm text-primary'>
@@ -24,7 +26,7 @@ const Topbar = () => {
             </div>
 
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 bg-primary text-secondary text-md flex items-center justify-center rounded-full">
+              <div className="w-7 h-7 bg-primary text-gold text-md flex items-center justify-center rounded-full">
                 <RiMailFill />
               </div>
               <div className='font-small font-primary text-sm text-primary'>
