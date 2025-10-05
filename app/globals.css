@@ -16,7 +16,7 @@ h6 {
 }
 
 .h1 {
-    @apply text-[25px] md:text-[40px] xl:text-[54px] uppercase font-black leading-[1.1];
+    @apply text-[30px] md:text-[40px] xl:text-[54px] uppercase font-black leading-[1.1];
 } 
 
 .h2 {
