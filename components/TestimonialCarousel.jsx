@@ -125,7 +125,7 @@ const TestimonialCarousel = () => {
 
   return (
     <div id='testimonials' className='pt-16 xl:pt-24 pb-16 xl:pb-24 bg-bglight'>
-      <div className='container mx-auto'>
+      <div className='container mx-auto mt-20 mb-10'>
         
         {/* Header Section with FadeIn */}
         <motion.div 

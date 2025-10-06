@@ -131,7 +131,7 @@ const SERVICES_DATA = [
         value: "residential",
         label: "Residential Cleaning",
         icon: Home,
-        image_url: "https://placehold.co/800x600/60A5FA/FFFFFF?text=Residential+Cleaning", // Placeholder URL
+        image_url: "./assets/img/services/house.jpg", // Placeholder URL
         title: "Comprehensive House & End of Lease Cleaning",
         description: (
             <>
@@ -149,7 +149,7 @@ const SERVICES_DATA = [
         value: "commercial",
         label: "Commercial & Office Cleaning",
         icon: Briefcase,
-        image_url: "https://placehold.co/800x600/34D399/FFFFFF?text=Commercial+Office+Cleaning", // Placeholder URL
+        image_url: "./assets/img/services/office.jpg", // Placeholder URL
         title: "Pristine Office, Shop, and Warehouse Environments",
         description: (
             <>
@@ -171,7 +171,7 @@ const SERVICES_DATA = [
         value: "specialty",
         label: "Specialty Services",
         icon: Zap,
-        image_url: "https://placehold.co/800x600/FBBF24/FFFFFF?text=Specialty+Services", // Placeholder URL
+        image_url: "./assets/img/services/dish.jpg", // Placeholder URL
         title: "Advanced Cleaning for Specific Needs",
         description: "Our specialty services employ advanced techniques for targeted results, promoting a healthier environment and simplified maintenance.",
         details: [
@@ -201,7 +201,7 @@ const SERVICES_DATA = [
 
 const Services = () => {
     return (
-        <div id='services' className='py-16 xl:py-24 bg-white text-primary'>
+        <div id='services' className='py-16 xl:py-24 bg-white text-primary '>
             <div className='container mx-auto px-4'>
                 
                 {/* Section Header */}
@@ -210,7 +210,7 @@ const Services = () => {
                     initial="hidden" 
                     whileInView="show" 
                     viewport={{ once: false, amount: 0.2 }} 
-                    className='text-center mb-12 xl:mb-16 max-w-3xl mx-auto'>
+                    className='text-center mt-10 mb-12 xl:mb-16 max-w-3xl mx-auto'>
                     
                     <div className='flex justify-center'>
                         <Pretitle text="Our Services" center /> 
@@ -221,9 +221,6 @@ const Services = () => {
                         Our Professional Cleaning Solutions
                     </h2>
                     
-                    <p className='text-primary/70 font-secondary text-base md:text-lg'> 
-                        From residential deep cleans to specialized commercial contracts, Dazzle Cleaning delivers excellence and peace of mind.
-                    </p>
                 </motion.div>
 
                 {/* Services Tabs Area */}

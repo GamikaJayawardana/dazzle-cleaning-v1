@@ -75,7 +75,7 @@ const Contact = () => {
     return (
         // Main container uses the specified light background
         <div id='contact' className='py-16 xl:py-24 bg-bglight'>
-            <div className='container mx-auto px-4'>
+            <div className='container mx-auto px-4 mt-10'>
                 
                 {/* 1. Header Section */}
                 <motion.div 
@@ -89,17 +89,18 @@ const Contact = () => {
                         <Pretitle text="Start Your Project" /> 
                     </div>
                     
-                    <h2 className='h2 mb-4 text-primary font-bold'> 
+                    <h2 id='quote' className='h2 mb-4 text-primary font-bold'> 
                         Get a Free Quote or Contact Our Team
                     </h2>
                     
-                    <p className='text-primary/70 font-secondary text-base md:text-lg'> 
+                    <p   className='text-primary/70 font-secondary text-base md:text-lg'> 
                         We provide clear, non-obligatory estimates tailored to your specific cleaning needs.
                     </p>
                 </motion.div>
 
                 {/* 2. Main Content Grid (The Single Card Container) */}
-                <motion.div 
+                <motion.div
+                    
                     variants={fadeIn("up", 0.3)} 
                     initial="hidden" 
                     whileInView="show" 
@@ -109,7 +110,7 @@ const Contact = () => {
                 >
                     
                     {/* A. Contact Information Panel (Left Column) */}
-                    <div className=''> 
+                    <div className='flex-grow'> 
                         <div className='mb-10'>
                             <h2 className='text-3xl font-bold text-primary mb-2'>
                                 Contact Us

@@ -36,13 +36,13 @@ const Hero = () => {
             whileInView="show" 
             viewport={{ once: false, amount: 0.8 }} 
             >
-            <button className='w-[190px] h-[48px] py-[5px] pl-[10px] pr-[5px] 
+            <a href="#services" className='w-[190px] h-[48px] py-[5px] pl-[10px] pr-[5px] 
                               flex items-center justify-between min-w-[230px] bg-[#06a4eb] group hover:bg-white'>
               <div className='flex-1 text-center tracking-[1.2px] font-primary font-bold text-primary  text-sm uppercase'>EXPLORE SERVICES</div>
               <div className='w-9 h-9 bg-primary flex items-center justify-center'>
                 <RiArrowRightUpLine className='text-white text-2xl group-hover:rotate-45 transition-all duration-200 ' />
               </div>
-            </button>
+            </a>
 
             </motion.div>
             
