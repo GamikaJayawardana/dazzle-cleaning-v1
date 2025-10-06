@@ -1,12 +1,129 @@
-import React from 'react';
-import Pretitle from './Pretitle'; // Local component import restored
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { fadeIn } from '@/public/assets/variants'; // Utility import restored
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'; // Shadcn components restored
 import { Home, Briefcase, Zap, CheckCircle } from 'lucide-react';
 
 // ===========================================
-// 1. SERVICE DATA (With Image URLs)
+// 1. EMBEDDED UTILITIES AND COMPONENTS
+//    (Required for single-file operation)
+// ===========================================
+
+// Utility to combine class names (simplified for this environment)
+const cn = (...classes) => classes.filter(Boolean).join(' ');
+
+// FADE IN ANIMATION (Embedded from '@/public/assets/variants')
+const fadeIn = (direction, delay) => {
+    return {
+        hidden: {
+            y: direction === 'up' ? 80 : direction === 'down' ? -80 : 0,
+            opacity: 0,
+            x: direction === 'left' ? 80 : direction === 'right' ? -80 : 0,
+        },
+        show: {
+            y: 0,
+            x: 0,
+            opacity: 1,
+            transition: {
+                type: 'tween',
+                duration: 1.2,
+                delay: delay,
+                ease: [0.25, 0.25, 0.25, 0.75],
+            },
+        },
+    };
+};
+
+// PRETITLE COMPONENT (Embedded from './Pretitle')
+const Pretitle = ({ text, center }) => {
+    return (
+        <div className={`flex items-center gap-3 mb-4 ${center ? "justify-center" : "justify-start"}`}>
+            <div className='w-2 h-2 bg-secondary rounded-full'></div>
+            <p className='font-primary text-primary tracking-[3.2px] uppercase text-sm font-semibold'>{text}</p>
+            <div className='w-2 h-2 bg-secondary rounded-full'></div>
+        </div>
+    );
+};
+
+// SHADCN TABS PRIMITIVES (Simplified for single-file use)
+const Tabs = ({ defaultValue, children, ...props }) => {
+    const [activeTab, setActiveTab] = useState(defaultValue);
+    
+    const childrenWithProps = React.Children.map(children, child => {
+        if (child && child.type && child.type.displayName === "TabsList") {
+            return React.cloneElement(child, { activeTab, setActiveTab });
+        }
+        if (child && child.type && child.type.displayName === "TabsContent") {
+            return React.cloneElement(child, { activeTab });
+        }
+        return child;
+    });
+
+    return <div {...props}>{childrenWithProps}</div>;
+};
+
+const TabsList = ({ activeTab, setActiveTab, className, children, ...props }) => (
+    <div
+        className={cn(
+            "flex flex-col lg:flex-row w-full lg:w-fit mx-auto overflow-x-auto justify-start lg:justify-center p-1 bg-gray-100 rounded-xl shadow-inner scrollbar-hide",
+            className
+        )}
+        {...props}
+    >
+        {React.Children.map(children, child => 
+            React.cloneElement(child, { 
+                activeTab, 
+                setActiveTab,
+                value: child.props.value 
+            })
+        )}
+    </div>
+);
+TabsList.displayName = "TabsList";
+
+const TabsTrigger = ({ activeTab, setActiveTab, value, className, children, ...props }) => {
+    const isActive = activeTab === value;
+    return (
+        <button
+            onClick={() => setActiveTab(value)}
+            className={cn(
+                "inline-flex flex-shrink-0 items-center justify-center whitespace-nowrap rounded-lg px-3 py-2 text-sm lg:text-base font-medium transition-all duration-300",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2",
+                isActive 
+                    ? "bg-white text-secondary shadow-md" 
+                    : "text-primary/70 data-[state=inactive]:hover:text-secondary", 
+                className
+            )}
+            {...props}
+        >
+            {children}
+        </button>
+    );
+};
+TabsTrigger.displayName = "TabsTrigger";
+
+const TabsContent = ({ activeTab, value, className, children, ...props }) => {
+    const isActive = activeTab === value;
+    if (!isActive) return null;
+
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className={cn(
+                "mt-8 p-6 lg:p-10 bg-white rounded-xl shadow-xl border-t-4 border-secondary",
+                className
+            )}
+            {...props}
+        >
+            {children}
+        </motion.div>
+    );
+};
+TabsContent.displayName = "TabsContent";
+
+
+// ===========================================
+// 2. SERVICE DATA (With Image URLs)
 // ===========================================
 
 const SERVICES_DATA = [
@@ -79,7 +196,7 @@ const SERVICES_DATA = [
 ];
 
 // ===========================================
-// 2. MAIN SERVICES COMPONENT
+// 3. MAIN SERVICES COMPONENT
 // ===========================================
 
 const Services = () => {
@@ -119,8 +236,8 @@ const Services = () => {
                 >
                     <Tabs defaultValue="residential">
                         
-                        {/* Tabs List / Triggers (w-fit logic applied here) */}
-                        <TabsList className="flex flex-col lg:flex-row w-full lg:w-fit mx-auto overflow-x-auto justify-start lg:justify-center p-1 bg-gray-100 rounded-xl shadow-inner scrollbar-hide">
+                        {/* Tabs List / Triggers */}
+                        <TabsList className="mb-8 lg:mb-12 flex w-full overflow-x-auto justify-start lg:justify-center p-1 bg-gray-100 rounded-xl shadow-inner scrollbar-hide">
                             {SERVICES_DATA.map(service => (
                                 <TabsTrigger 
                                     key={service.value} 
@@ -135,27 +252,21 @@ const Services = () => {
 
                         {/* Tabs Content */}
                         {SERVICES_DATA.map(service => (
-                            <TabsContent 
-                                key={service.value} 
-                                value={service.value}
-                                // Card styling with border-t-4 border-secondary
-                                className='p-6 lg:p-10 bg-white rounded-xl shadow-xl border-t-4 border-secondary' 
-                            >
+                            <TabsContent key={service.value} value={service.value}>
                                 <div className='grid lg:grid-cols-2 gap-8'>
                                     
-                                    {/* Right Column: Image (order-first displays it above text on mobile, left on desktop) */}
+                                    {/* Right Column: Image (Order changed for alignment) */}
                                     <div className='order-first'> 
-                                        {/* NOTE: If you are using Next.js <Image> component, replace this standard <img> tag */}
                                         <img 
                                             src={service.image_url} 
                                             alt={service.label + " image"}
-                                            className='w-full md:w-auto h-auto md:h-full object-cover rounded-lg shadow-lg'
+                                            className='w-full h-full object-cover rounded-lg shadow-lg'
                                             // Fallback for image loading error
                                             onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/800x600/cccccc/000000?text=Image+Not+Found"; }}
                                         />
                                     </div>
 
-                                    {/* Left Column: Text Content (self-start ensures top alignment in the grid) */}
+                                    {/* Left Column: Text Content (self-start for vertical alignment) */}
                                     <div className='self-start'>
                                         <h3 className='text-3xl font-extrabold text-primary mb-4'>
                                             {service.title}
@@ -186,9 +297,3 @@ const Services = () => {
 };
 
 export default Services;
-
-// The change was applied inside the TabsTrigger component:
-/*
-// Original active state: "bg-white text-secondary shadow-md"
-// New active state: "bg-secondary text-white shadow-md"
-*/
