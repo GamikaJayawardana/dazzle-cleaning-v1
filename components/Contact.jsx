@@ -105,7 +105,7 @@ const Contact = () => {
                     whileInView="show" 
                     viewport={{ once: false, amount: 0.2 }} 
                     // Single card styling: bg-white, shadow-2xl, rounded-xl applied to the grid container
-                    className='grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto rounded-xl bg-white shadow-2xl p-8 lg:p-12'
+                    className='grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto rounded-xl bg-white shadow-2xl p-8 lg:p-12 border-t-4 border-secondary'
                 >
                     
                     {/* A. Contact Information Panel (Left Column) */}
