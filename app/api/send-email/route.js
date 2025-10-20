@@ -34,6 +34,7 @@ export async function POST(req) {
       return NextResponse.json({ error: 'Could not send the email.' }, { status: 400 });
     }
 
+    
     // 3. Send a success response. It's now NextResponse.json()
     return NextResponse.json({ message: 'Email sent successfully!' }, { status: 200 });
 
