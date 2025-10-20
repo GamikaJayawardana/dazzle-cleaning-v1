@@ -22,7 +22,7 @@ const Topbar = () => {
                 <RiPhoneFill />
               </div>
               <div className='font-medium font-primary text-md text-primary'>
-               +1 (123) 456-7890
+               +61 424 298 996
               </div>
             </div>
 
@@ -31,7 +31,7 @@ const Topbar = () => {
                 <RiMailFill />
               </div>
               <div className='font-medium font-primary text-md text-primary'>
-                dazzlecleaning@gmail.com
+                info@dazzlecleaning.com.au
               </div>
 
             </div>
