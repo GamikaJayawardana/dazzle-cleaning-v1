@@ -4,27 +4,27 @@ import { motion } from 'framer-motion';
 import { fadeIn } from '@/public/assets/variants'; // External import
 import { Mail, Phone, MapPin, Send, MessageSquare } from 'lucide-react';
 
-// --- Contact Details Data ---
+// --- Contact Details Data (UPDATED for Dazzle Cleaning) ---
 const CONTACT_INFO = [
     { 
-        icon: MessageSquare, 
-        title: "Chat to us", 
-        details: ["Our friendly team is here to help.", "hi@urbanbuild.com"] 
+        icon: Mail, 
+        title: "Email Us", 
+        details: ["Our friendly team is here to help.", "info@dazzlecleaning.com.au"] 
     },
     { 
         icon: MapPin, 
         title: "Office", 
-        details: ["Come and say hello at our office.", "1250 Brickstone Ave, Dallas, TX", "75201, USA"] 
+        details: ["Serving the wider Melbourne area.", "Melbourne, VIC, Australia"] 
     },
     { 
         icon: Phone, 
         title: "Phone", 
-        details: ["Mon-Fri from 8am to 5pm.", "+1 (555) 000-0000"] 
+        details: ["Mon-Fri from 8am to 5pm.", "(03) 9XXX XXXX"] 
     },
 ];
 
 const SERVICE_OPTIONS = [
-    { value: "", label: "Select a service" },
+    { value: "", label: "Select a service*" },
     { value: "residential", label: "Residential Cleaning" },
     { value: "commercial", label: "Commercial Office Cleaning" },
     { value: "deep_clean", label: "Deep/Spring Cleaning" },
@@ -43,37 +43,56 @@ const Contact = () => {
     });
     const [submitted, setSubmitted] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [error, setError] = useState(''); // State to hold error messages
 
     // Form field change handler
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    // Form submission handler
-    const handleSubmit = (e) => {
+    // --- Form submission handler (MODIFIED to be functional) ---
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
-        console.log('Quote Request Submitted:', formData);
-        
-        // Simulate API call delay
-        setTimeout(() => {
-            setIsSubmitting(false);
+        setError(''); // Clear previous errors
+
+        try {
+            // Send form data to our API route
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (!response.ok) {
+                // If the server response is not OK, throw an error
+                throw new Error('Failed to send message. Please try again later.');
+            }
+
+            // Handle success
             setSubmitted(true);
-            
-            // Clear form and hide success message after a few seconds
-            setFormData({ name: '', email: '', phone: '', service: '', message: '' });
-            setTimeout(() => setSubmitted(false), 4000);
-        }, 1500);
+            setFormData({ name: '', email: '', phone: '', service: '', message: '' }); // Clear the form
+            setTimeout(() => setSubmitted(false), 5000); // Hide success message after 5 seconds
+
+        } catch (err) {
+            // Handle errors from the fetch call or server
+            console.error(err);
+            setError(err.message);
+        } finally {
+            // This will run regardless of success or failure
+            setIsSubmitting(false);
+        }
     };
 
     // Common input styling for consistency
     const inputClasses = "w-full p-3 border border-primary/20 rounded-lg text-primary bg-white focus:ring-secondary focus:border-secondary transition duration-300 placeholder:text-primary/60";
     
-    // Select styling uses inputClasses but adds appearance-none for better cross-browser consistency
+    // Select styling
     const selectClasses = `${inputClasses} appearance-none pr-8`;
 
     return (
-        // Main container uses the specified light background
         <div id='contact' className='py-16 xl:py-24 bg-bglight'>
             <div className='container mx-auto px-4 mt-10'>
                 
@@ -86,26 +105,24 @@ const Contact = () => {
                     className='text-center mb-12 xl:mb-16 max-w-2xl mx-auto'>
                     
                     <div className='flex justify-center mb-4'>
-                        <Pretitle text="Start Your Project" /> 
+                        <Pretitle text="Get in Touch" /> 
                     </div>
                     
                     <h2 id='quote' className='h2 mb-4 text-primary font-bold'> 
-                        Get a Free Quote or Contact Our Team
+                        Get a Free Quote
                     </h2>
                     
-                    <p   className='text-primary/70 font-secondary text-base md:text-lg'> 
+                    <p className='text-primary/70 font-secondary text-base md:text-lg'> 
                         We provide clear, non-obligatory estimates tailored to your specific cleaning needs.
                     </p>
                 </motion.div>
 
-                {/* 2. Main Content Grid (The Single Card Container) */}
+                {/* 2. Main Content Grid */}
                 <motion.div
-                    
                     variants={fadeIn("up", 0.3)} 
                     initial="hidden" 
                     whileInView="show" 
                     viewport={{ once: false, amount: 0.2 }} 
-                    // Single card styling: bg-white, shadow-2xl, rounded-xl applied to the grid container
                     className='grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto rounded-xl bg-white shadow-2xl p-8 lg:p-12 border-t-4 border-secondary'
                 >
                     
@@ -113,10 +130,10 @@ const Contact = () => {
                     <div className='flex-grow'> 
                         <div className='mb-10'>
                             <h2 className='text-3xl font-bold text-primary mb-2'>
-                                Contact Us
+                                Contact Details
                             </h2>
                             <p className='text-primary/70 font-secondary text-base'>
-                                From project planning to final touches, we've answered the most common questions.
+                                Have questions? Feel free to reach out to us through any of the channels below.
                             </p>
                         </div>
                         
@@ -124,7 +141,6 @@ const Contact = () => {
                         <div className='space-y-10'>
                             {CONTACT_INFO.map((item, index) => (
                                 <div key={index} className='flex items-start space-x-4'>
-                                    {/* Icon container with secondary border */}
                                     <div className='p-3 border border-secondary text-secondary rounded-lg flex-shrink-0'>
                                         <item.icon className='w-6 h-6' />
                                     </div>
@@ -139,108 +155,80 @@ const Contact = () => {
                                 </div>
                             ))}
                         </div>
-                        
-                        {/* Social Icons (Placeholder for alignment) */}
-                        <div className='mt-12 flex space-x-4 text-primary/70'>
-                            <a href="#" className="hover:text-secondary transition-colors"><i className="fab fa-facebook-f"></i></a>
-                            <a href="#" className="hover:text-secondary transition-colors"><i className="fab fa-youtube"></i></a>
-                            <a href="#" className="hover:text-secondary transition-colors"><i className="fab fa-twitter"></i></a>
-                            <a href="#" className="hover:text-secondary transition-colors"><i className="fab fa-instagram"></i></a>
-                        </div>
                     </div>
 
                     {/* B. Request a Quote Form (Right Column) */}
-                    <div className=''>
+                    <div>
                         <h2 className='text-3xl font-bold text-primary mb-2'>
                             Request A Quote
                         </h2>
                          <p className='text-primary/70 font-secondary text-base mb-6'>
-                            From project planning to final touches, we've answered the most common questions.
+                            Fill out the form below and we'll get back to you as soon as possible.
                         </p>
 
                         <form onSubmit={handleSubmit} className='space-y-6'>
                             
-                            {/* Success message */}
+                            {/* Success Message */}
                             {submitted && (
                                 <motion.div 
                                     initial={{ opacity: 0, y: -10 }} 
                                     animate={{ opacity: 1, y: 0 }} 
-                                    className='p-4 text-center bg-green-100 text-green-700 rounded-lg font-semibold'
+                                    className='p-4 text-center bg-green-100 text-green-800 rounded-lg font-semibold'
                                 >
                                     Quote request submitted! We will contact you shortly.
                                 </motion.div>
                             )}
+                            {/* Error Message */}
+                             {error && (
+                                <div className='p-4 text-center bg-red-100 text-red-800 rounded-lg font-semibold'>
+                                    {error}
+                                </div>
+                            )}
 
-                            {/* Name and Email */}
+                            {/* Form Fields */}
                             <input
-                                type='text'
-                                name='name'
-                                value={formData.name}
-                                onChange={handleChange}
-                                placeholder='Your Name*'
-                                required
-                                className={inputClasses}
+                                type='text' name='name' value={formData.name}
+                                onChange={handleChange} placeholder='Your Name*'
+                                required className={inputClasses}
                             />
                             <input
-                                type='email'
-                                name='email'
-                                value={formData.email}
-                                onChange={handleChange}
-                                placeholder='Your Email*'
-                                required
-                                className={inputClasses}
+                                type='email' name='email' value={formData.email}
+                                onChange={handleChange} placeholder='Your Email*'
+                                required className={inputClasses}
                             />
                             
-                            {/* Phone and Service Dropdown (Two-column layout) */}
                             <div className='grid sm:grid-cols-2 gap-4'>
                                 <input
-                                    type='tel'
-                                    name='phone'
-                                    value={formData.phone}
-                                    onChange={handleChange}
-                                    placeholder='Phone number'
+                                    type='tel' name='phone' value={formData.phone}
+                                    onChange={handleChange} placeholder='Phone Number'
                                     className={inputClasses}
                                 />
                                 <div className='relative'>
                                     <select
-                                        name='service'
-                                        value={formData.service}
-                                        onChange={handleChange}
-                                        className={selectClasses}
+                                        name='service' value={formData.service}
+                                        onChange={handleChange} className={selectClasses}
+                                        required
                                     >
                                         {SERVICE_OPTIONS.map((option) => (
-                                            <option 
-                                                key={option.value} 
-                                                value={option.value}
-                                                disabled={option.value === ""}
-                                                hidden={option.value === ""}
-                                            >
+                                            <option key={option.value} value={option.value} disabled={option.value === ""}>
                                                 {option.label}
                                             </option>
                                         ))}
                                     </select>
-                                    {/* Custom arrow for select box */}
                                     <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-primary/70">
                                         <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                                     </div>
                                 </div>
                             </div>
 
-                            {/* Message */}
                             <textarea
-                                name='message'
-                                value={formData.message}
-                                onChange={handleChange}
-                                placeholder='Enter your message'
-                                required
-                                rows='5'
-                                className={inputClasses}
+                                name='message' value={formData.message}
+                                onChange={handleChange} placeholder='Enter your message*'
+                                required rows='5' className={inputClasses}
                             ></textarea>
 
-                            {/* Submit Button */}
                             <button
-                                type='submit'
-                                disabled={isSubmitting}
+                                type='submit' disabled={isSubmitting}
                                 className={`w-full py-3 px-6 text-lg font-semibold rounded-lg shadow-md transition-all duration-300 flex items-center justify-center space-x-2 
                                     ${isSubmitting 
                                         ? 'bg-secondary/70 text-white cursor-not-allowed' 

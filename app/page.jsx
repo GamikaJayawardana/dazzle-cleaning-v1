@@ -9,7 +9,6 @@ import Hero from '@/components/Hero'
 import MapSection from '@/components/MapSection';
 import Services from '@/components/Services'
 import Stats from '@/components/Stats'
-import Testimonials from '@/components/Testimonials'
 import Topbar from '@/components/Topbar'
 import Work from '@/components/Work'
 import React, { useEffect } from 'react'
