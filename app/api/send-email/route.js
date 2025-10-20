@@ -1,46 +1,57 @@
-// File: app/api/send-email/route.js
-
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 
+// Initialize Resend client with API key
 const resend = new Resend(process.env.RESEND_API_KEY);
+
+console.log("RESEND_API_KEY:", process.env.RESEND_API_KEY ? "✅ Loaded" : "❌ Missing");
+
 
 export async function POST(req) {
   try {
-    // 1. Get the form data from the request. It's now req.json()
     const { name, email, phone, service, message } = await req.json();
 
-    // 2. Use Resend to send the email
+    console.log("Incoming request:", { name, email, phone, service });
+
+    // === VALIDATION ===
+    if (!name || !email || !service || !message) {
+      return NextResponse.json({ error: 'Missing required fields.' }, { status: 400 });
+    }
+
+    // === SEND EMAIL ===
     const { data, error } = await resend.emails.send({
-      from: 'Dazzle Cleaning Quote <noreply@dazzlecleaning.com.au>',
-      to: ['info@dazzlecleaning.com.au'],
-      subject: `New Website Quote Request from ${name}`,
+      //from: 'Dazzle Cleaning <no-reply@dazzlecleaning.com.au>', // ✅ your verified domain
+      from: 'onboarding@resend.dev',
+
+      to: ['gamikakj@gmail.com'],                      // ✅ recipient email (can be same domain)
       reply_to: email,
+      subject: `New Quote Request from ${name}`,
       html: `
-        <h1>New Quote Request for Dazzle Cleaning</h1>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
-        <p><strong>Service Requested:</strong> ${service}</p>
-        <hr>
-        <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, "<br>")}</p>
+        <div style="font-family:Arial,sans-serif;max-width:600px;margin:auto;padding:20px;border:1px solid #eee;border-radius:10px;">
+          <h2 style="color:#0a3d62;">New Quote Request</h2>
+          <p><b>Name:</b> ${name}</p>
+          <p><b>Email:</b> ${email}</p>
+          <p><b>Phone:</b> ${phone || 'Not provided'}</p>
+          <p><b>Service:</b> ${service}</p>
+          <hr/>
+          <p><b>Message:</b></p>
+          <p>${message.replace(/\n/g, '<br>')}</p>
+          <hr/>
+          <p style="font-size:12px;color:#888;">This message was sent from your website contact form.</p>
+        </div>
       `,
     });
 
-    // Handle errors from Resend
     if (error) {
-      console.error({ error });
-      return NextResponse.json({ error: 'Could not send the email.' }, { status: 400 });
+      console.error('Resend Error:', error);
+      return NextResponse.json({ error: 'Could not send email.', detail: error }, { status: 400 });
     }
 
-    
-    // 3. Send a success response. It's now NextResponse.json()
+    console.log('Email sent successfully:', data);
     return NextResponse.json({ message: 'Email sent successfully!' }, { status: 200 });
 
-  } catch (e) {
-    // Handle other server errors
-    console.error(e);
+  } catch (err) {
+    console.error('Server Error:', err);
     return NextResponse.json({ error: 'An unexpected error occurred.' }, { status: 500 });
   }
 }
