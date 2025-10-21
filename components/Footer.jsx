@@ -96,16 +96,16 @@ const Footer = () => {
 
             <div className="flex gap-4">
               {/* Social Icons */}
-              <a href="#" className="text-white/60 hover:text-secondary transition-all duration-300 text-lg">
+              <a href="#" aria-label="Visit social 1" className="text-white/60 hover:text-secondary transition-all duration-300 text-lg">
                 <FaFacebookF />
               </a>
-              <a href="#" className="text-white/60 hover:text-secondary transition-all duration-300 text-lg">
+              <a href="#" aria-label="Visit social 2" className="text-white/60 hover:text-secondary transition-all duration-300 text-lg">
                 <FaTwitter />
               </a>
-              <a href="#" className="text-white/60 hover:text-secondary transition-all duration-300 text-lg">
+              <a href="#" aria-label="Visit social 3" className="text-white/60 hover:text-secondary transition-all duration-300 text-lg">
                 <FaYoutube />
               </a>
-              <a href="#" className="text-white/60 hover:text-secondary transition-all duration-300 text-lg">
+              <a href="#" aria-label="Visit social 4" className="text-white/60 hover:text-secondary transition-all duration-300 text-lg">
                 <FaInstagram />
               </a>
             </div>
