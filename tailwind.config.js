@@ -36,7 +36,8 @@ module.exports = {
         custom: "0px 4px 54px 10px rgba(18, 19, 21, 0.06)",
       },
       backgroundImage:{
-        hero: "url(/assets/img/hero/bg.png)"
+        'hero-sm': "url(/assets/img/hero/bg-mobile.png)", 
+        'hero-lg': "url(/assets/img/hero/bg.png)",
       }
   	},
   },

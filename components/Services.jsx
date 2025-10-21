@@ -252,8 +252,8 @@ const Services = () => {
                                         <Image
                                             src={service.image_src} 
                                             alt={service.title}
-                                            width={800} // Specify a base width
-                                            height={600} // Specify a base height
+                                            width={700} // Specify a base width
+                                            height={500} // Specify a base height
                                             className='w-full h-auto object-cover rounded-lg shadow-lg'
                                             placeholder="blur" // Optional: adds a nice loading effect
                                         />

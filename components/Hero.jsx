@@ -7,7 +7,7 @@ import { fadeIn } from '@/public/assets/variants'
 
 const Hero = () => {
   return (
-    <section className='h-[70vh] bg-hero bg-no-repeat bg-cover bg-center relative'>
+    <section className='h-[70vh] bg-hero-sm lg:bg-hero-lg bg-no-repeat bg-cover bg-center relative'>
       {/* overlay*/}
       <div className='absolute inset-0 bg-gradient-to-l from-black/0 via-black/70 to-black/80 z-10'>
 

@@ -22,6 +22,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        {/* ADD THIS LINK TAG to prioritize the hero image */}
+        <link 
+          rel="preload" 
+          fetchPriority="high"
+          as="image"
+          href="/assets/img/hero/bg.png"
+          type="image/png"
+        />
+      </head>
       <body
         className={`${montserrat.variable} ${openSans.variable} antialiased`}
       >
