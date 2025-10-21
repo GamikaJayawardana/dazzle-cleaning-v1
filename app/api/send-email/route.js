@@ -29,7 +29,7 @@ export async function POST(req) {
           <div style="max-width:600px;margin:auto;background-color:#ffffff;border-radius:10px;overflow:hidden;border:1px solid #ddd;">
             
             <div style="background-color:#011017;color:#ffffff;padding:20px 30px;text-align:center;">
-              <h1 style="margin:0;font-size:24px;">New Website Quote Request</h1>
+              <h1 style="margin:0;font-size:24px;">New Quote Request From Website</h1>
             </div>
 
             <div style="padding:30px;color:#333333;">
