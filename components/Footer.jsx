@@ -56,11 +56,11 @@ const Footer = () => {
                 </li>
                 <li className="flex items-center gap-3">
                   <RiPhoneFill className="text-secondary" />
-                  <span>+(1)555-CLEANING</span>
+                  <span>+61 424 298 996</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <RiMailFill className="text-secondary" />
-                  <span>info@cleanservice.com</span>
+                  <span>info@dazzlecleaning.com.au</span>
                 </li>
               </ul>
             </div>

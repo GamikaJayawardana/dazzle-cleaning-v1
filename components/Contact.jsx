@@ -21,7 +21,7 @@ const CONTACT_INFO = [
   { 
     icon: Phone, 
     title: "Phone", 
-    details: ["Mon-Fri from 8am to 5pm.", "(03) 9XXX XXXX"] 
+    details: ["Mon-Fri from 8am to 5pm.", "+61 424 298 996"] 
   },
 ];
 
