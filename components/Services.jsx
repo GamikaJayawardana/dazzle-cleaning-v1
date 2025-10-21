@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Home, Briefcase, Zap, CheckCircle } from 'lucide-react';
+import Image from 'next/image';
 
-// ===========================================
-// 1. EMBEDDED UTILITIES AND COMPONENTS
-//    (Required for single-file operation)
-// ===========================================
+import residentialImg from '../public/assets/img/services/house.jpg';
+import commercialImg from '../public/assets/img/services/office.jpg';
+import specialtyImg from '../public/assets/img/services/dish.jpg';
 
-// Utility to combine class names (simplified for this environment)
+
 const cn = (...classes) => classes.filter(Boolean).join(' ');
 
-// FADE IN ANIMATION (Embedded from '@/public/assets/variants')
+
 const fadeIn = (direction, delay) => {
     return {
         hidden: {
@@ -32,7 +32,7 @@ const fadeIn = (direction, delay) => {
     };
 };
 
-// PRETITLE COMPONENT (Embedded from './Pretitle')
+
 const Pretitle = ({ text, center }) => {
     return (
         <div className={`flex items-center gap-3 mb-4 ${center ? "justify-center" : "justify-start"}`}>
@@ -43,7 +43,7 @@ const Pretitle = ({ text, center }) => {
     );
 };
 
-// SHADCN TABS PRIMITIVES (Simplified for single-file use)
+
 const Tabs = ({ defaultValue, children, ...props }) => {
     const [activeTab, setActiveTab] = useState(defaultValue);
     
@@ -122,16 +122,14 @@ const TabsContent = ({ activeTab, value, className, children, ...props }) => {
 TabsContent.displayName = "TabsContent";
 
 
-// ===========================================
-// 2. SERVICE DATA (With Image URLs)
-// ===========================================
+
 
 const SERVICES_DATA = [
     {
         value: "residential",
         label: "Residential Cleaning",
         icon: Home,
-        image_url: "./assets/img/services/house.jpg", // Placeholder URL
+        image_src: residentialImg,
         title: "Comprehensive House & End of Lease Cleaning",
         description: (
             <>
@@ -149,7 +147,7 @@ const SERVICES_DATA = [
         value: "commercial",
         label: "Commercial & Office Cleaning",
         icon: Briefcase,
-        image_url: "./assets/img/services/office.jpg", // Placeholder URL
+        image_src: commercialImg,
         title: "Pristine Office, Shop, and Warehouse Environments",
         description: (
             <>
@@ -171,7 +169,7 @@ const SERVICES_DATA = [
         value: "specialty",
         label: "Specialty Services",
         icon: Zap,
-        image_url: "./assets/img/services/dish.jpg", // Placeholder URL
+        image_src: specialtyImg, // Placeholder URL
         title: "Advanced Cleaning for Specific Needs",
         description: "Our specialty services employ advanced techniques for targeted results, promoting a healthier environment and simplified maintenance.",
         details: [
@@ -195,9 +193,6 @@ const SERVICES_DATA = [
     },
 ];
 
-// ===========================================
-// 3. MAIN SERVICES COMPONENT
-// ===========================================
 
 const Services = () => {
     return (
@@ -254,12 +249,13 @@ const Services = () => {
                                     
                                     {/* Right Column: Image (Order changed for alignment) */}
                                     <div className='order-first'> 
-                                        <img 
-                                            src={service.image_url} 
-                                            alt={service.label + " image"}
-                                            className='w-full h-full object-cover rounded-lg shadow-lg'
-                                            // Fallback for image loading error
-                                            onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/800x600/cccccc/000000?text=Image+Not+Found"; }}
+                                        <Image
+                                            src={service.image_src} 
+                                            alt={service.title}
+                                            width={800} // Specify a base width
+                                            height={600} // Specify a base height
+                                            className='w-full h-auto object-cover rounded-lg shadow-lg'
+                                            placeholder="blur" // Optional: adds a nice loading effect
                                         />
                                     </div>
 

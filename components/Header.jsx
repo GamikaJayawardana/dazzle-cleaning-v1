@@ -32,6 +32,7 @@ const Header = () => {
                                 hover:underline decoration-secondary underline-offset-8 decoration-4 transition-all duration-300' >
                                         <ScrollLink
                                             to={link.path}
+                                            href={`#${link.path}`}
                                             smooth
                                             spy
                                             className='cursor-pointer  '

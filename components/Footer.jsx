@@ -79,6 +79,7 @@ const Footer = () => {
                 />
                 <button
                   type="submit"
+                  aria-label="Subscribe to newsletter"
                   className="w-12 h-auto bg-secondary flex items-center justify-center text-primary text-xl hover:bg-secondary transition-all duration-300"
                 >
                   <RiArrowRightUpLine className='text-primary text-2xl group-hover:rotate-45 transition-all duration-200' />

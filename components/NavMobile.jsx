@@ -53,6 +53,7 @@ const NavMobile = () => {
                                 <li key={index} className='font-primary font-semibold text-white text-sm uppercase tracking-[1.5]' >
                                     <ScrollLink
                                         to={link.path}
+                                        href={`#${link.path}`}
                                         smooth
                                         spy
                                         duration={500}

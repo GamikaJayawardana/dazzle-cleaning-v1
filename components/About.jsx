@@ -3,6 +3,8 @@ import Pretitle from './Pretitle'
 import { RiArrowRightUpLine } from 'react-icons/ri'
 import { motion } from 'framer-motion'
 import { fadeIn } from '@/public/assets/variants'
+import Image from 'next/image';
+import aboutImg from '../public/assets/img/about/AboutImgBGR.png';
 
 const About = () => {
   return (
@@ -17,7 +19,13 @@ const About = () => {
             whileInView="show"
             viewport={{ once: false, amount: 0.8 }}
             className='flex-1 hidden xl:flex justify-start'>
-            <img src="/assets/img/about/AboutImgBGR.png" alt="about img" width={400} />
+           <Image 
+              src={aboutImg} 
+              alt="Professional cleaner from Dazzle Cleaning in Melbourne" 
+              width={400} 
+              height={642}
+              style={{ objectFit: 'contain' }} // Ensures the image fits correctly
+            />
           </motion.div>
 
           {/*Text Content - Added 'mx-auto' and 'text-center' for mobile centering */}
