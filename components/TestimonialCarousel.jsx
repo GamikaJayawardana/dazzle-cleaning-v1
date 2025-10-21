@@ -139,7 +139,7 @@ const TestimonialCarousel = () => {
             <Pretitle text="What Our Clients Say" />
           </div>
           <h2 className='h2 mb-2 max-w-4xl mx-auto text-primary'>
-            Don't take our word for it<span className='text-secondary'>customers say it best</span>
+            Don't take our word for it <br /><span className='text-secondary'>customers say it best</span>
           </h2>
         </motion.div>
 
