@@ -15,8 +15,8 @@ const openSans = Open_Sans({
 
 
 export const metadata = {
-  title: "Dazzle Cleaning | Reliable House Cleaning & Bond Cleaning",
-  description: "Professional Cleaning Services",
+  title: "Dazzle Cleaning | Top House & Commercial Cleaners in Melbourne",
+  description: "Dazzle Cleaning offers professional and reliable house, end of lease, and commercial office cleaning services across Melbourne. Get a free quote today!",
 };
 
 export default function RootLayout({ children }) {

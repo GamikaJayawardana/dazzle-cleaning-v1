@@ -1,0 +1,6 @@
+# Allow all user agents to crawl the site
+User-agent: *
+Allow: /
+
+# Location of sitemap
+Sitemap: https://www.www.dazzlecleaning.com.au/sitemap.xml

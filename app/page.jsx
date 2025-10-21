@@ -14,6 +14,32 @@ import Work from '@/components/Work'
 import React, { useEffect } from 'react'
 import TestimonialCarousel from '@/components/TestimonialCarousel';
 
+// Function to generate JSON-LD for Local Business
+function addJsonLd() {
+  return {
+    __html: `{
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Dazzle Cleaning",
+      "image": "https://www.dazzlecleaning.com.au/assets/logo.png",
+      "url": "https://www.dazzlecleaning.com.au",
+      "telephone": "+61 424 298 996",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Melbourne",
+        "addressRegion": "VIC",
+        "addressCountry": "AU"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "17:00"
+      } 
+    }`,
+  };
+}
+
 
 const Home = () => {
   const [headerActive, setHeaderActive] = React.useState(false);
@@ -33,6 +59,13 @@ const Home = () => {
 
   return (
     <div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={addJsonLd()}
+        key="local-business-schema"
+      />
+      
       <Topbar />
 
       {/*static header*/}

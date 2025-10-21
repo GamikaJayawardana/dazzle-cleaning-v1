@@ -31,7 +31,7 @@ const FAQ_DATA = [
   {
     id: 1,
     question: "What types of cleaning services do you offer?",
-    answer: "We offer comprehensive residential cleaning, end-of-lease cleaning, deep cleaning, and commercial office cleaning services. Our packages are customizable to fit your specific needs and schedule.",
+    answer: "We offer comprehensive residential cleaning, end-of-lease cleaning, deep cleaning, and commercial office cleaning services across Melbourne. Our packages are customizable to fit your specific needs and schedule.",
   },
   {
     id: 2,

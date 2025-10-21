@@ -27,7 +27,7 @@ const Hero = () => {
             whileInView="show" 
             viewport={{ once: false, amount: 0.8 }} 
             className='mb-9'>
-              We don't just clean; we create spaces that promote well-being and productivity. Enjoy the peace of mind that comes with a professionally maintained and sanitized home or office.
+              Specializing in homes and offices across Melbourne, we do more than just clean—we create healthier, more productive environments. Enjoy the peace of mind that comes with a professionally sanitized space.
             </motion.p>
 
             <motion.div

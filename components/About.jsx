@@ -34,7 +34,7 @@ const About = () => {
                 <Pretitle text="About Us" />
               </div>
 
-              <h2 className='h2 mb-6'>Committed To Sparkling Cleanliness In Every Space</h2>
+              <h2 className='h2 mb-6'>Committed To Sparkling Cleanliness In Every Space in Melbourne</h2>
               <p className='mb-11 text-primary/70'>Dazzle Cleaning offers comprehensive End of lease cleaning services designed to keep your homesparkling clean and comfortable. Our services include dusting all surfaces, vacuuming and moppingfloors, scrubbing bathrooms, and thoroughly cleaning kitchens. We pay attention to detail, ensuring thatevery corner of your home is spotless.</p>
 
               {/* Button - Added 'mx-auto' to center it when the parent text is centered */}
