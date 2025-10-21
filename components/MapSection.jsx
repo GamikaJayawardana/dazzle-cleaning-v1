@@ -15,6 +15,7 @@ const MapSection = () => {
         {/* Responsive iframe container */}
         <div className="relative w-full overflow-hidden" style={{ paddingTop: '30%' /* 16:9 Aspect Ratio (height / width * 100) */ }}>
           <iframe
+            title="Location of Dazzle Cleaning service area in Melbourne"
             src={mapIframeSrc}
             width="100%"       // Set to 100% to fill the container
             height="100px"      // Set to 100% to fill the container

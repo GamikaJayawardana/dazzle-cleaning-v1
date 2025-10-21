@@ -1,24 +1,23 @@
 import React from 'react'
-import { Link } from 'react-scroll'
-import Image from 'next/image'; 
-import logoSrc from '../public/assets/logo.png'
-import './logo.css' // Import your CSS file
+import { Link as ScrollLink } from 'react-scroll'
+import Image from 'next/image';
+import './logo.css' 
 
 const Logo = () => {
   return (
     <div>
-      <Link to="home" smooth={true} duration={500}>
-        {/* 3. Use the Image component */}
+      
+      <ScrollLink to="home" href="#home" smooth={true} duration={500}>
         <Image 
-          src={logoSrc} 
-          alt="Dazzle Cleaning Melbourne Logo" 
-          width={150} 
-          height={63}
-          priority 
+            src="/assets/logo.png" 
+            alt="Dazzle Cleaning Melbourne Logo" 
+            width={150} 
+            height={63}
+            priority 
         />    
-      </Link>
+      </ScrollLink>
     </div>
   )
 }
 
-export default Logo
+export default Logo;

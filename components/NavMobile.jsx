@@ -29,6 +29,7 @@ const NavMobile = () => {
     return (
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger
+                aria-label="Open mobile navigation menu"
                 className='text-white flex items-center justify-center text-3xl'
                 onClick={() => setIsOpen(true)}
             >

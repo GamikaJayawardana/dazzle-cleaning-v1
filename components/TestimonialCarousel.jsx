@@ -84,7 +84,7 @@ const TestimonialCard = ({ quote, name, title, profileImageUrl }) => (
                 e.target.src=`https://placehold.co/56x56/06a4eb/ffffff?text=${initials}`;
             }} 
         />
-        <h4 className="text-primary font-bold text-lg mb-0">{name}</h4>
+        <p className="text-primary font-bold text-lg mb-0">{name}</p>
         <p className="text-primary/60 text-sm mt-0">{title}</p>
     </div>
   </div>

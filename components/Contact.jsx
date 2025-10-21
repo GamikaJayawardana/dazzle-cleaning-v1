@@ -179,9 +179,15 @@ const Contact = () => {
                   className={inputClasses}
                 />
                 <div className='relative'>
+                  <label htmlFor="service-select" className="sr-only">Select a service</label>
+
                   <select
-                    name='service' value={formData.service}
-                    onChange={handleChange} className={selectClasses} required
+                    id="service-select" 
+                    name='service' 
+                    value={formData.service}
+                    onChange={handleChange} 
+                    className={selectClasses} 
+                    required
                   >
                     {SERVICE_OPTIONS.map((option) => (
                       <option key={option.value} value={option.value} disabled={option.value === ""}>

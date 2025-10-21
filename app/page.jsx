@@ -58,7 +58,7 @@ const Home = () => {
   console.log(headerActive);
 
   return (
-    <div>
+    <main>
 
       <script
         type="application/ld+json"
@@ -88,7 +88,7 @@ const Home = () => {
       <Contact /> 
       <MapSection />
       <Footer />
-    </div>
+    </main>
   )
 }
 
