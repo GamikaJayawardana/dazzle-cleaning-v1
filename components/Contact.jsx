@@ -8,20 +8,26 @@ import { fadeIn } from '@/public/assets/variants';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 
 const CONTACT_INFO = [
-  { 
-    icon: Mail, 
-    title: "Email Us", 
-    details: ["Our friendly team is here to help.", "info@dazzlecleaning.com.au"] 
+  {
+    icon: Mail,
+    title: "Email Us",
+    details: [
+      "Our friendly team is here to help.",
+      "info@dazzlecleaning.com.au",
+    ],
   },
-  { 
-    icon: MapPin, 
-    title: "Office", 
-    details: ["Serving the wider Melbourne area.", "Melbourne, VIC, Australia"] 
+  {
+    icon: MapPin,
+    title: "Office",
+    details: [
+      "Serving the wider Melbourne area.",
+      "3/6 Rangeview road, Boronia, VIC, Australia",
+    ],
   },
-  { 
-    icon: Phone, 
-    title: "Phone", 
-    details: ["Mon-Fri from 8am to 5pm.", "+61 424 298 996"] 
+  {
+    icon: Phone,
+    title: "Phone",
+    details: ["Mon-Fri from 8am to 5pm.", "+61 424 298 996"],
   },
 ];
 
