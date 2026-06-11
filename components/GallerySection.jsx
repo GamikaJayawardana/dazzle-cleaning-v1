@@ -48,7 +48,7 @@ const GallerySection = () => {
                 if (data.images && data.images.length > 0) {
                     // Shuffle and pick 20
                     const shuffled = [...data.images].sort(() => 0.5 - Math.random());
-                    setImages(shuffled.slice(0, 20));
+                    setImages(shuffled.slice(0, 10));
                 }
             } catch (error) {
                 console.error("Failed to fetch gallery images", error);
