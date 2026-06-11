@@ -2,6 +2,8 @@
 
 import React from 'react'
 import { Link as ScrollLink } from 'react-scroll'
+import NextLink from 'next/link';
+import { usePathname } from 'next/navigation';
 import Logo from './Logo';
 import BtnQuote from './BtnQuote';
 import NavMobile from './NavMobile';
@@ -15,6 +17,8 @@ const links = [
 ]
 
 const Header = () => {
+    const pathname = usePathname();
+
     return (
         <header className="bg-primary text-white py-4">
             <div className="container mx-auto">
@@ -30,16 +34,25 @@ const Header = () => {
                                 return (
                                     <li key={index} className='font-primary font-semibold text-white text-sm uppercase tracking-[1.5]
                                 hover:underline decoration-secondary underline-offset-8 decoration-4 transition-all duration-300' >
-                                        <ScrollLink
-                                            to={link.path}
-                                            href={`#${link.path}`}
-                                            smooth
-                                            spy
-                                            className='cursor-pointer  '
-                                            activeClass='text-accent'
-                                        >
-                                            {link.name}
-                                        </ScrollLink>
+                                        {pathname === '/' ? (
+                                            <ScrollLink
+                                                to={link.path}
+                                                href={`#${link.path}`}
+                                                smooth
+                                                spy
+                                                className='cursor-pointer  '
+                                                activeClass='text-accent'
+                                            >
+                                                {link.name}
+                                            </ScrollLink>
+                                        ) : (
+                                            <NextLink
+                                                href={`/#${link.path}`}
+                                                className='cursor-pointer'
+                                            >
+                                                {link.name}
+                                            </NextLink>
+                                        )}
                                     </li>
                                 )
                             })}

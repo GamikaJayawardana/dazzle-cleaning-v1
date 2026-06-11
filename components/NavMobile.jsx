@@ -13,6 +13,8 @@ import {
 import Logo from './Logo'
 import Socials from './Socials';
 import { Link as ScrollLink } from 'react-scroll'
+import NextLink from 'next/link';
+import { usePathname } from 'next/navigation';
 
 import { RiMenu3Fill } from 'react-icons/ri'
 
@@ -26,6 +28,8 @@ const links = [
 
 const NavMobile = () => {
     const [isOpen, setIsOpen] = React.useState(false);
+    const pathname = usePathname();
+
     return (
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger
@@ -52,18 +56,28 @@ const NavMobile = () => {
                         {links.map((link, index) => {
                             return (
                                 <li key={index} className='font-primary font-semibold text-white text-sm uppercase tracking-[1.5]' >
-                                    <ScrollLink
-                                        to={link.path}
-                                        href={`#${link.path}`}
-                                        smooth
-                                        spy
-                                        duration={500}
-                                        className='cursor-pointer  '
-                                        activeClass='text-accent'
-                                        onClick={() => setIsOpen(false)}
-                                    >
-                                        {link.name}
-                                    </ScrollLink>
+                                    {pathname === '/' ? (
+                                        <ScrollLink
+                                            to={link.path}
+                                            href={`#${link.path}`}
+                                            smooth
+                                            spy
+                                            duration={500}
+                                            className='cursor-pointer  '
+                                            activeClass='text-accent'
+                                            onClick={() => setIsOpen(false)}
+                                        >
+                                            {link.name}
+                                        </ScrollLink>
+                                    ) : (
+                                        <NextLink
+                                            href={`/#${link.path}`}
+                                            className='cursor-pointer'
+                                            onClick={() => setIsOpen(false)}
+                                        >
+                                            {link.name}
+                                        </NextLink>
+                                    )}
                                 </li>
                             )
                         })}

@@ -8,9 +8,11 @@ import { Link as ScrollLink } from 'react-scroll';
 import { RiArrowRightUpLine } from 'react-icons/ri';
 import { RiPhoneFill, RiMailFill,  } from 'react-icons/ri'
 import { RiHome3Fill } from 'react-icons/ri';
+import { usePathname } from 'next/navigation';
 
 const Footer = () => {
   const [showScroll, setShowScroll] = useState(false);
+  const pathname = usePathname();
 
   // Function to handle scroll and show/hide the button
   const checkScrollTop = () => {
@@ -138,16 +140,28 @@ const Footer = () => {
       {/* Floating Scroll to Top Button (New/Modified Section) */}
       {showScroll && (
         <div className="fixed bottom-8 right-8 z-50">
-          <ScrollLink
-            to="home" // Assuming 'home' is the ID of your top section
-            smooth={true}
-            duration={500}
-            className="w-12 h-12 bg-secondary flex items-center justify-center 
-                       text-primary text-2xl cursor-pointer 
-                       hover:opacity-90 transition-all duration-300 shadow-lg"
-          >
-            <IoChevronUpOutline />
-          </ScrollLink>
+          {pathname === '/' ? (
+            <ScrollLink
+              to="home" // Assuming 'home' is the ID of your top section
+              smooth={true}
+              duration={500}
+              className="w-12 h-12 bg-secondary flex items-center justify-center 
+                         text-primary text-2xl cursor-pointer 
+                         hover:opacity-90 transition-all duration-300 shadow-lg"
+            >
+              <IoChevronUpOutline />
+            </ScrollLink>
+          ) : (
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              aria-label="Scroll to top"
+              className="w-12 h-12 bg-secondary flex items-center justify-center 
+                         text-primary text-2xl cursor-pointer 
+                         hover:opacity-90 transition-all duration-300 shadow-lg"
+            >
+              <IoChevronUpOutline />
+            </button>
+          )}
         </div>
       )}
     </>

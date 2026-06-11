@@ -10,6 +10,7 @@ import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Stats from '@/components/Stats';
 import Services from '@/components/Services';
+import GallerySection from '@/components/GallerySection';
 
 // --- Dynamically import components that are below the fold ---
 const TestimonialCarousel = dynamic(() => import('@/components/TestimonialCarousel'));
@@ -80,6 +81,7 @@ const HomeClient = () => { // Renamed to HomeClient
       <About />
       <Stats />
       <Services />
+      <GallerySection />
 
       <TestimonialCarousel />
       <Faq />
