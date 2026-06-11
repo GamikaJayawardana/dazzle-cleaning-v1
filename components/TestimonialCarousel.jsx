@@ -37,7 +37,7 @@ const testimonials = [
   },
   {
     id: 5,
-    quote: "TDazzle Cleaning exceeded our expectations. The cleaners were friendly, efficient, and incredible. Every room was cleaned to a high standard, including areas that are often overlooked. It's reassuring to know we can rely on such a professional team. We will definitely continue using their services.",
+    quote: "Dazzle Cleaning exceeded our expectations. The cleaners were friendly, efficient, and incredible. Every room was cleaned to a high standard, including areas that are often overlooked. It's reassuring to know we can rely on such a professional team. We will definitely continue using their services.",
     name: "Stephanie",
     title: "Wheelers Hill",
     profileImageUrl: "https://placehold.co/60x60/011017/ffffff?text=ST",
